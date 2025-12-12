@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: nl2sql
+  mvc:
+    problemdetails:
+      enabled: true  # modern RFC7807 error responses
+  datasourcs :
+    initialization-mode :never
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/nlp_sql_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+app:
+  cors:
+    allowed-origins: "http://localhost:5173"
+
+  provider: stub
+
+groq:
+  api:
+    key: ""
+#enter your api key

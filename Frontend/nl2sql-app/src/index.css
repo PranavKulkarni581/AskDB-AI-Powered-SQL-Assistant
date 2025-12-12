@@ -1,0 +1,32 @@
+
+@import 'reactflow/dist/style.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glass-bg-light: 255 255 255 / 0.7;
+  --glass-bg-dark: 2 6 23 / 0.6; /* slate-950 */
+}
+
+/* smooth scrolling & antialias */
+html { scroll-behavior: smooth; }
+body { font-feature-settings: "liga" 1, "kern" 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* gradient text helper */
+.grad-text {
+  background-image: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* glass panel */
+.glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(var(--glass-bg-light));
+}
+.dark .glass {
+  background-color: rgba(var(--glass-bg-dark));
+}
